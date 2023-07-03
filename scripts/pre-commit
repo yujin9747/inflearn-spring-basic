@@ -3,7 +3,7 @@
 stagedFiles=$(git diff --staged --name-only)
 # Part 2
 echo "Running spotlessApply. Formatting code..."
-./gradlew spotlessApply
+./gradlew spotlessApply --daemon
 # Part 3
 for file in $stagedFiles; do
   if test -f "$file"; then
