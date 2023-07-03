@@ -11,8 +11,6 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void join(Member member) {
         memberRepository.save(member);
-
-
     }
 
     @Override
