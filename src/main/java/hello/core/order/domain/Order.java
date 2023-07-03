@@ -19,12 +19,17 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", itemName='" + itemName + '\'' +
-                ", itemPrice=" + itemPrice +
-                ", discountPrice=" + discountPrice +
-                '}';
+        return "Order{"
+                + "id="
+                + id
+                + ", itemName='"
+                + itemName
+                + '\''
+                + ", itemPrice="
+                + itemPrice
+                + ", discountPrice="
+                + discountPrice
+                + '}';
     }
 
     public void setId(Long id) {
