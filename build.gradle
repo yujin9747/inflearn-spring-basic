@@ -26,11 +26,26 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-tasks.register('updateGitHooks', Copy){
-    from './scripts/pre-commit'
-    into '.git/hooks'
-    fileMode 0755
+tasks.create(name: 'gitExecutableHooks'){
+    Runtime.getRuntime().exec('chmod -R +x .git/hooks/');
 }
+
+task installGitHooks(type: Copy) {
+    from new File(rootProject.projectDir, 'pre-commit')
+    into {
+        new File(rootProject.projectDir, '.git/hooks')
+    }
+}
+
+gitExecutableHooks.dependsOn installGitHooks
+clean.dependsOn gitExecutableHooks
+
+tasks.register('updateGitHooks', Copy) {
+    from './script/pre-commit'
+    into '.git/hooks'
+}
+
+compileJava.dependsOn updateGitHooks
 
 spotless{
     java {

@@ -3,7 +3,6 @@ package hello.core.member.service;
 import hello.core.member.domain.Member;
 import hello.core.member.repository.MemberRepository;
 import hello.core.member.repository.MemoryMemberRepository;
-import org.springframework.stereotype.Component;
 
 public class MemberServiceImpl implements MemberService {
 
@@ -17,6 +16,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
+
 
 
 
