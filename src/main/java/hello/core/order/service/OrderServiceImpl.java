@@ -1,7 +1,6 @@
 package hello.core.order.service;
 
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.domain.Member;
 import hello.core.member.repository.MemberRepository;
 import hello.core.member.repository.MemoryMemberRepository;
@@ -10,7 +9,9 @@ import hello.core.order.domain.Order;
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    //    private DiscountPolicy discountPolicy = new FixDiscountPolicy();
+//    private DiscountPolicy discountPolicy = new RateDiscountPolicy(); // OCP, DIP 위반?
+    private DiscountPolicy discountPolicy; // 외부에서  OrderServiceImpl에 DiscountPolicy 구현체를 주입해줘야 함
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
