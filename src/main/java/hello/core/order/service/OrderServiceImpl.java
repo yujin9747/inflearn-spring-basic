@@ -11,7 +11,8 @@ public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
     //    private DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //    private DiscountPolicy discountPolicy = new RateDiscountPolicy(); // OCP, DIP 위반
-    private final DiscountPolicy discountPolicy; // 외부에서  OrderServiceImpl에 DiscountPolicy 구현체를 주입해줘야 함
+    private final DiscountPolicy
+            discountPolicy; // 외부에서  OrderServiceImpl에 DiscountPolicy 구현체를 주입해줘야 함
 
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;

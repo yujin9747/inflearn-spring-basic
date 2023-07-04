@@ -5,7 +5,7 @@ import hello.core.member.repository.MemberRepository;
 
 public class MemberServiceImpl implements MemberService {
 
-    private final MemberRepository memberRepository;    //오로지 추상화(인터페이스)에만 의존한다.
+    private final MemberRepository memberRepository; // 오로지 추상화(인터페이스)에만 의존한다.
 
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
