@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 // 구성 영역
 @Configuration
-public class AppConfig {
+public class AppConfig { // 자바를 이용하는건 factoryMethod를 통해서 등록하는 방식, xml은 해당하지 않는다.
     // @Bean : spring container에 빈을 등록한다
     @Bean
     public MemberService memberService() {
