@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class BeanDefinitionTest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
-//    GenericApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
+    //    GenericApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
 
     @Test
     @DisplayName("빈 설정 메타 정보 확인")
@@ -17,7 +17,8 @@ public class BeanDefinitionTest {
         for (String beanDefinitionName : beanDefinitionNames) {
             BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);
             if (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
-                System.out.println("beanDefinitionName = " + beanDefinitionName + " beanDefinition = " + beanDefinition);
+                System.out.println(
+                        "beanDefinitionName = " + beanDefinitionName + " beanDefinition = " + beanDefinition);
             }
         }
     }
