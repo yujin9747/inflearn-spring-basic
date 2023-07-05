@@ -29,4 +29,18 @@ public class SingletonTest {
     }
 
 
+    // 스프링 없이 싱글톤 패턴 적용
+    @Test
+    @DisplayName("싱글톤 패턴을 적용한 객체 사용")
+    void singletonServiceTest() {
+        SingletonService instance = SingletonService.getInstance();
+        SingletonService instance2 = SingletonService.getInstance();
+
+        System.out.println("instance = " + instance);
+        System.out.println("instance2 = " + instance2);
+
+        Assertions.assertThat(instance).isSameAs(instance2);
+    }
+
+    // 스프링 컨테이너를 사용하면 스프링 컨테이너가 싱글톤을 보장해준다.
 }
