@@ -1,7 +1,10 @@
 package hello.core.beanfind;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import hello.core.member.repository.MemberRepository;
 import hello.core.member.repository.MemoryMemberRepository;
+import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,12 +13,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Map;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class ApplicationContextSameBeanFindTest {
-    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SameBeanConfig.class);
+    AnnotationConfigApplicationContext ac =
+            new AnnotationConfigApplicationContext(SameBeanConfig.class);
 
     @Configuration
     static class SameBeanConfig {
