@@ -1,8 +1,5 @@
 package hello.core;
 
-import hello.core.member.repository.MemberRepository;
-import hello.core.member.repository.MemoryMemberRepository;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -24,14 +21,13 @@ import org.springframework.context.annotation.FilterType;
 public class AutoAppConfig {
 
     // 필드 주입을 사용하는 예시
-//    @Autowired MemberRepository memberRepository;
-//    @Autowired
-//    DiscountPolicy discountPolicy;
-//    @Bean
-//    OrderService orderService(){
-//        return new OrderServiceImpl(memberRepository, discountPolicy);
-//    }
-
+    //    @Autowired MemberRepository memberRepository;
+    //    @Autowired
+    //    DiscountPolicy discountPolicy;
+    //    @Bean
+    //    OrderService orderService(){
+    //        return new OrderServiceImpl(memberRepository, discountPolicy);
+    //    }
 
     // 수동 빈 등록이 우선되어 overriding 된다. 이러한 결과를 의도하는 것 보다, 여러 설정들이 꼬여서 이런 결과가 만들어지는 경우가 대부분이다
     // 따라서 최근 스프링 부트에서는 수동 빈 등록과 자동 빈 등록이 충돌나면 오류가 발생하도록 기본 값을 바꾸었다.
@@ -43,8 +39,8 @@ public class AutoAppConfig {
     // A bean with that name has already been defined in file
     // [/Users/jang-yujin/Documents/development/inflearn-spring-basic/out/production/classes/hello/core/member/repository/MemoryMemberRepository.class]
     // and overriding is disabled.
-    @Bean(name = "memoryMemberRepository")
-    MemberRepository memoryRepository() {
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    MemberRepository memoryRepository() {
+//        return new MemoryMemberRepository();
+//    }
 }

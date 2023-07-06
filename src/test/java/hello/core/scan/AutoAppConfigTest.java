@@ -1,5 +1,7 @@
 package hello.core.scan;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import hello.core.AutoAppConfig;
 import hello.core.member.repository.MemberRepository;
 import hello.core.member.service.MemberService;
@@ -7,8 +9,6 @@ import hello.core.order.service.OrderServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class AutoAppConfigTest {
     @Test

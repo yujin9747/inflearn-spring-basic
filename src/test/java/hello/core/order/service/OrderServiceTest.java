@@ -31,12 +31,12 @@ class OrderServiceTest {
     }
 
     // 필드 주입 방식을 사용할 때 발생하는 문제점 : 스프링 없이 순수 자바로 테스트 하기 어렵다.
-//    @Test
-//    void fieldInjectionTest() {
-//        OrderServiceImpl orderService = new OrderServiceImpl();
-//
-//        // DI를 위한 생성자가 추가적으로 필요함
-//
-//        orderService.createOrder(1L, "itemA", 10000);
-//    }
+    //    @Test
+    //    void fieldInjectionTest() {
+    //        OrderServiceImpl orderService = new OrderServiceImpl();
+    //
+    //        // DI를 위한 생성자가 추가적으로 필요함
+    //
+    //        orderService.createOrder(1L, "itemA", 10000);
+    //    }
 }
