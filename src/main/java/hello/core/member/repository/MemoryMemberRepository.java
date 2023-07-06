@@ -1,10 +1,9 @@
 package hello.core.member.repository;
 
 import hello.core.member.domain.Member;
-import org.springframework.stereotype.Component;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.stereotype.Component;
 
 @Component
 public class MemoryMemberRepository implements MemberRepository {

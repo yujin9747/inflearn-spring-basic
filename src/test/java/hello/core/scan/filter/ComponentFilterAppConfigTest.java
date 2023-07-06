@@ -12,21 +12,22 @@ public class ComponentFilterAppConfigTest {
 
     @Test
     void filterScan() {
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ComponentFilterAppConfig.class);
+        AnnotationConfigApplicationContext ac =
+                new AnnotationConfigApplicationContext(ComponentFilterAppConfig.class);
 
         BeanA beanA = ac.getBean("beanA", BeanA.class);
         Assertions.assertThat(beanA).isNotNull();
 
         org.junit.jupiter.api.Assertions.assertThrows(
-                NoSuchBeanDefinitionException.class,
-                () -> ac.getBean("beanB", BeanB.class)
-        );
+                NoSuchBeanDefinitionException.class, () -> ac.getBean("beanB", BeanB.class));
     }
 
     // FilterType.ANNOTATION인 경우는 type 생략 가능.
     @Configuration
-    @ComponentScan(includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = MyIncludeComponent.class),
-            excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = MyExcludeComponent.class))
-    static class ComponentFilterAppConfig {
-    }
+    @ComponentScan(
+            includeFilters =
+                    @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = MyIncludeComponent.class),
+            excludeFilters =
+                    @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = MyExcludeComponent.class))
+    static class ComponentFilterAppConfig {}
 }
