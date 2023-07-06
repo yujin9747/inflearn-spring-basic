@@ -17,7 +17,8 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig { // 자바를 이용하는건 factoryMethod를 통해서 등록하는 방식, xml은 해당하지 않는다.
     // @Bean : spring container에 빈을 등록한다
 
-    // 자바 코드 그대로라면 memberRepository는 총 3번 출력되어야 한다. -> @Configuration을 붙이지 않아서 CGLIB를 사용하지 않는 경우 memberRepository가 총 3번 생성된다.(싱글톤 깨짐)
+    // 자바 코드 그대로라면 memberRepository는 총 3번 출력되어야 한다. -> @Configuration을 붙이지 않아서 CGLIB를 사용하지 않는 경우
+    // memberRepository가 총 3번 생성된다.(싱글톤 깨짐)
     // AppConfig.memberService
     // AppConfig.memberRepository
     // AppConfig.memberRepository
@@ -26,7 +27,7 @@ public class AppConfig { // 자바를 이용하는건 factoryMethod를 통해서
     // 하지만 각각 한 번씩만 출력된다. -> @Configuration을 붙이면 싱글톤을 보장해준다.
 
     // @Autowired를 통해 싱글톤을 유지할 수도 있다.
-//    @Autowired MemberRepository memberRepository; // 생성자 주입
+    //    @Autowired MemberRepository memberRepository; // 생성자 주입
     @Bean
     public MemberService memberService() {
         System.out.println("AppConfig.memberService");

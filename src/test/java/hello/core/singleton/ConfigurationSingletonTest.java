@@ -40,15 +40,16 @@ public class ConfigurationSingletonTest {
         System.out.println("bean.getClass() = " + bean.getClass());
         // @Configuration을 빼면 bean.getClass() = class hello.core.AppConfig 이 출력된다.
         // CGLIB 예시 코드
-//        @Bean
-//        public MemberRepository memberRepository(){
-//            if(memberRepository가 이미 스프링 컨테이너에 있으면?){
-//
-//            }
-//            else { // 스프링 컨테이너에 없으면?
-//                기존 로직(AppConfig.class 내의 memberRepository())을 호출해서 MemoryMemberRepository를 생성하고 스프링 빈에 등록한다.
-//                return 반환.
-//            }
-//        }
+        //        @Bean
+        //        public MemberRepository memberRepository(){
+        //            if(memberRepository가 이미 스프링 컨테이너에 있으면?){
+        //
+        //            }
+        //            else { // 스프링 컨테이너에 없으면?
+        //                기존 로직(AppConfig.class 내의 memberRepository())을 호출해서 MemoryMemberRepository를
+        // 생성하고 스프링 빈에 등록한다.
+        //                return 반환.
+        //            }
+        //        }
     }
 }
