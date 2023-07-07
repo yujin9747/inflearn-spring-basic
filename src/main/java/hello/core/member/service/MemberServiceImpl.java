@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 // OrderServiceImpl 과 똑같은 이름인 경우 BeanDefinitionStoreException 발생
-//@Component("service")
+// @Component("service")
 @Component
 public class MemberServiceImpl implements MemberService {
 
