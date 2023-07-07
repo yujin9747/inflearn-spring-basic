@@ -20,7 +20,10 @@ public class BeanLifeCycleTest {
     static class LifeCycleConfig {
 
         // 코드를 고칠 수 없는 외부 라이브러리에도 초기화, 종료 메서드를 설정 정보에서 적용할 수 있다.
-        @Bean(initMethod = "init", destroyMethod = "close") // spring bean이 spring 코드에 의존하지 않도록 설계할 수 있음.
+//        @Bean(
+//                initMethod = "init",
+//                destroyMethod = "close") // spring bean이 spring 코드에 의존하지 않도록 설계할 수 있음.
+        @Bean
         public NetworkClient networkClient() {
             // url을 세팅하기 전에 connect, call을 하므로 url = null 으로 출력된다.
             NetworkClient networkClient = new NetworkClient(); // 빈 생성

@@ -1,6 +1,9 @@
 package hello.core.lifecycle;
 
-//public class NetworkClient implements InitializingBean, DisposableBean {
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
+// public class NetworkClient implements InitializingBean, DisposableBean {
 public class NetworkClient {
     private String url;
 
@@ -29,6 +32,7 @@ public class NetworkClient {
     }
 
     // 의존관계 주입이 끝난 후 호출해주는 함수
+    @PostConstruct
     public void init() throws Exception {
         System.out.println("NetworkClient.init");
         System.out.println("의존관계 주입 끝난 후, url 정보 is not null인 채로 연결 시도");
@@ -37,6 +41,7 @@ public class NetworkClient {
     }
 
     // 빈이 종료될 때 호출해주는 함수
+    @PreDestroy
     public void close() throws Exception {
         System.out.println("NetworkClient.close");
         disconnect();
