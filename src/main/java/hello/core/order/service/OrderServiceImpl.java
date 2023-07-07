@@ -1,5 +1,6 @@
 package hello.core.order.service;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.domain.Member;
 import hello.core.member.repository.MemberRepository;
@@ -7,11 +8,12 @@ import hello.core.order.domain.Order;
 import org.springframework.stereotype.Component;
 
 @Component // 빈 이름을 지정하지 않으면 클래스 이름을 빈 이름으로 사용한다. (orderServiceImpl)
-//@RequiredArgsConstructor // final이 붙은 필드를 모아서 생성자를 자동으로 만들어준다.
+// @RequiredArgsConstructor // final이 붙은 필드를 모아서 생성자를 자동으로 만들어준다.
 public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
 
-    // FixDiscountPolicy와 RateDiscountPolicy 둘 다 빈으로 등록되어 있는 경우 에러가 발생한다. -> @Qualifer, @Primary, @Autowire 통해서 해결 가능.
+    // FixDiscountPolicy와 RateDiscountPolicy 둘 다 빈으로 등록되어 있는 경우 에러가 발생한다. -> @Qualifer, @Primary,
+    // @Autowire 통해서 해결 가능.
     private final DiscountPolicy discountPolicy;
 
     /**
@@ -19,8 +21,9 @@ public class OrderServiceImpl implements OrderService {
      * 가능 @RequiredArgsConstructor를 사용하면 final이 붙은 필드를 모아서 생성자를 자동으로 만들어준다.
      */
     //    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    //    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy")
+    // DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         System.out.println("Constructor로 주입");
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
