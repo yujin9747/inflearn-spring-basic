@@ -7,7 +7,6 @@ import hello.core.member.repository.MemoryMemberRepository;
 import hello.core.member.service.MemberService;
 import hello.core.member.service.MemberServiceImpl;
 import hello.core.order.service.OrderService;
-import hello.core.order.service.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -37,8 +36,8 @@ public class AppConfig { // 자바를 이용하는건 factoryMethod를 통해서
     @Bean
     public OrderService orderService() {
         System.out.println("AppConfig.orderService");
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
-        //        return null;    // 필드 주입 설명하기 위해 위의 코드 주석 처리 함.
+//        return new OrderServiceImpl(memberRepository(), discountPolicy());
+        return null;    // 필드 주입 설명하기 위해 위의 코드 주석 처리 함.
     }
 
     // 역할을 모두 드러내는 방식으로 메소드를 뽑아낸다

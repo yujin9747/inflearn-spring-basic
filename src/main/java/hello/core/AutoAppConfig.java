@@ -13,10 +13,10 @@ import org.springframework.context.annotation.FilterType;
                 AutoAppConfig
                         .class, // 지정한 클래스의 패키지를 탐색 시작 위치로 지정한다. 이 클래스가 속한 패키지를 포함해서 하위 패키지를 모두 탐색한다. 여러개 설정 가능
         excludeFilters =
-        @ComponentScan.Filter(
-                type = FilterType.ANNOTATION,
-                classes = Configuration.class) // AppConfig.class를 제외하기 위함.
-)
+                @ComponentScan.Filter(
+                        type = FilterType.ANNOTATION,
+                        classes = Configuration.class) // AppConfig.class를 제외하기 위함.
+        )
 // @ComponentScan은 @Component가 붙은 클래스를 스캔해서 빈으로 등록한다. @Bean을 사용할 필요가 없다.
 public class AutoAppConfig {
 
@@ -39,8 +39,8 @@ public class AutoAppConfig {
     // A bean with that name has already been defined in file
     // [/Users/jang-yujin/Documents/development/inflearn-spring-basic/out/production/classes/hello/core/member/repository/MemoryMemberRepository.class]
     // and overriding is disabled.
-//    @Bean(name = "memoryMemberRepository")
-//    MemberRepository memoryRepository() {
-//        return new MemoryMemberRepository();
-//    }
+    //    @Bean(name = "memoryMemberRepository")
+    //    MemberRepository memoryRepository() {
+    //        return new MemoryMemberRepository();
+    //    }
 }
