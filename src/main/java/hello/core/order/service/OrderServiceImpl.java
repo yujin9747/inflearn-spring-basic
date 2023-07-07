@@ -23,7 +23,8 @@ public class OrderServiceImpl implements OrderService {
     //    @Autowired
     //    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy")
     // DiscountPolicy discountPolicy) {
-    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(
+            MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         System.out.println("Constructor로 주입");
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
