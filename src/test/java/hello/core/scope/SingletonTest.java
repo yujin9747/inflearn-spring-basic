@@ -11,7 +11,8 @@ public class SingletonTest {
 
     @Test
     public void singletonBeanTest() {
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SingletonBean.class);
+        AnnotationConfigApplicationContext ac =
+                new AnnotationConfigApplicationContext(SingletonBean.class);
         SingletonBean bean1 = ac.getBean(SingletonBean.class);
         SingletonBean bean2 = ac.getBean(SingletonBean.class);
 

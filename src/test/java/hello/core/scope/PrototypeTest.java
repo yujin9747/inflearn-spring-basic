@@ -11,7 +11,8 @@ public class PrototypeTest {
 
     @Test
     public void prototypBeanFind() {
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
+        AnnotationConfigApplicationContext ac =
+                new AnnotationConfigApplicationContext(PrototypeBean.class);
         System.out.println("find prototypeBean1");
         PrototypeBean bean1 = ac.getBean(PrototypeBean.class); // PrototypeBean을 새로 생성
         System.out.println("find prototypeBean2");
@@ -37,6 +38,4 @@ public class PrototypeTest {
             System.out.println("PrototypeBean.destroy");
         }
     }
-
-
 }
