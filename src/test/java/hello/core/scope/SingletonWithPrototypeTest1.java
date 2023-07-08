@@ -13,7 +13,8 @@ public class SingletonWithPrototypeTest1 {
 
     @Test
     public void prototypeFind() {
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
+        AnnotationConfigApplicationContext ac =
+                new AnnotationConfigApplicationContext(PrototypeBean.class);
 
         PrototypeBean bean = ac.getBean(PrototypeBean.class);
         bean.addCount();
@@ -26,7 +27,8 @@ public class SingletonWithPrototypeTest1 {
 
     @Test
     public void singletonClientUsePrototype() {
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ClientBean.class, PrototypeBean.class);
+        AnnotationConfigApplicationContext ac =
+                new AnnotationConfigApplicationContext(ClientBean.class, PrototypeBean.class);
 
         // singleton bean 내에 있는 필드를 사용해서 add 했기 때문에 prototypeBean은 한 번만 init되고, 재사용된다.
         ClientBean clientBean1 = ac.getBean(ClientBean.class);
@@ -47,9 +49,10 @@ public class SingletonWithPrototypeTest1 {
         // Provider는 자바 표준. JSR-330. get() 하나로 매우 기능이 단순함. 단위테스트를 만들거나 mock 코드를 만들기 훨씬 쉬워진다.
         private final Provider<PrototypeBean> prototypeBeanProvider;
 
-// ObjectProvider : ObjectFactory의 확장 버전, 둘 다 spring에 의존적인 방법!!
-        // spring container에서 대신 조회해주는 대리자 역할 : ObjectProvider --> Dependency Lookup 정도의 기능만 제공함 (DI와 반대 방향)
-//        private final PrototypeBean prototypeBean;
+        // ObjectProvider : ObjectFactory의 확장 버전, 둘 다 spring에 의존적인 방법!!
+        // spring container에서 대신 조회해주는 대리자 역할 : ObjectProvider --> Dependency Lookup 정도의 기능만 제공함 (DI와 반대
+        // 방향)
+        //        private final PrototypeBean prototypeBean;
 
         public int logic() {
             PrototypeBean prototypeBean = prototypeBeanProvider.get();
