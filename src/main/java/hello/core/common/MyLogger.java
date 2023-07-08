@@ -2,10 +2,9 @@ package hello.core.common;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import java.util.UUID;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
-import java.util.UUID;
 
 @Component
 @Scope(value = "request")
